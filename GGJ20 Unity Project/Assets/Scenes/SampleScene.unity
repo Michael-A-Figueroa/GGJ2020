@@ -499,6 +499,26 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1101406134}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &941928828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941928826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 559d756ed59ebcf49bc45b799df654ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 307
+  maxDistance: 10
+  focusHit: {fileID: 0}
+  focusCache: {fileID: 0}
+  highlight: 0
+  startColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1001 &1101406134
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -596,7 +616,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6047131818763811334, guid: 700259229602db54cbf11f8d922e2157, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 700259229602db54cbf11f8d922e2157, type: 3}
 --- !u!1 &1128133653
 GameObject:
@@ -1011,7 +1032,7 @@ GameObject:
   - component: {fileID: 1271830480}
   m_Layer: 0
   m_Name: Part 1
-  m_TagString: part1
+  m_TagString: part
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1119,7 +1140,7 @@ GameObject:
   - component: {fileID: 1330307315}
   m_Layer: 0
   m_Name: Part 2
-  m_TagString: part2
+  m_TagString: part
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

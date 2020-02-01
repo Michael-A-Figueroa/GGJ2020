@@ -6,9 +6,13 @@ public class CameraFocus : MonoBehaviour
 {
     public LayerMask layerMask;
     
-    public float maxDistance;
+    public float maxDistance = 10;
 
     public GameObject focusHit;
+    public GameObject focusCache;
+    public bool highlight;
+
+    public Color startColor;
 
     // Start is called before the first frame update
     void Start()
@@ -30,17 +34,30 @@ public class CameraFocus : MonoBehaviour
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.red);
             focusHit = hit.transform.gameObject;
 
-            //if (focusHit.GetComponent<PartBehavior>())
-            //{
-            //    focusHit.GetComponent<PartBehavior>().Highlight();
-            //}
-
             //Debug.Log("Did Hit: " + hit.collider.tag);
         }
-        else
+        else if(focusCache != null)
         {
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * maxDistance, Color.blue);
-            //Debug.Log("Did not Hit");
+            focusHit = null;
+            highlight = false;
+            focusCache.GetComponent<Renderer>().material.color = startColor;
         }
+
+        //highlight
+        if (focusHit != null && (focusHit.CompareTag("part") || focusHit.CompareTag("tool")) && !highlight)
+        {
+            focusCache = focusHit;
+            startColor = focusHit.GetComponent<Renderer>().material.color;
+            focusHit.GetComponent<Renderer>().material.color = Color.yellow;
+            highlight = true;
+        }
+        //un-highlight
+        if (focusCache != null && !ReferenceEquals(focusCache, focusHit))
+        {
+            highlight = false;
+            focusCache.GetComponent<Renderer>().material.color = startColor;
+        }
+
+        Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * maxDistance, Color.blue);
     }
 }

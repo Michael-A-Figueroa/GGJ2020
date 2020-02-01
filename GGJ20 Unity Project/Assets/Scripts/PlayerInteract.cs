@@ -45,7 +45,7 @@ public class PlayerInteract : MonoBehaviour
                 }
                 else if (cameraFocusScript.focusHit.GetComponent<PartBehavior>().partType != toolType)
                 {
-                    IncorrectTool();
+                    IncorrectTool(cameraFocusScript.focusHit);
                 }
             }
             
@@ -121,8 +121,10 @@ public class PlayerInteract : MonoBehaviour
         Debug.Log("Right part");
     }
 
-    public void IncorrectTool()
+    public void IncorrectTool(GameObject part)
     {
+        part.GetComponent<PartBehavior>().partHealth += 1;
+
         Debug.Log("Wrong part");
     }
 }

@@ -10,8 +10,6 @@ public class CameraFocus : MonoBehaviour
 
     public GameObject focusHit;
 
-    public Color startColor;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +35,7 @@ public class CameraFocus : MonoBehaviour
             //    focusHit.GetComponent<PartBehavior>().Highlight();
             //}
 
-            Debug.Log("Did Hit: " + hit.collider.tag);
+            //Debug.Log("Did Hit: " + hit.collider.tag);
         }
         else
         {

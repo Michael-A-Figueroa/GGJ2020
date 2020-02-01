@@ -6,19 +6,19 @@ public class PlayerMovement : MonoBehaviour
 {
     public bool canMove = true;
 
-    public float h;
-    public float v;
+    float h;
+    float v;
 
     public float movementSpeed = 0.1f;
-    public Vector3 moveVect;
+    Vector3 moveVect;
 
-    public Transform cam;
-    public Vector3 camForward;
-    public float camAngle;
+    Transform cam;
+    Vector3 camForward;
+    float camAngle;
 
-    public Vector3 lookVect;
-    public Vector3 targetDirection;
-    public Quaternion lookRotation;
+    Vector3 lookVect;
+    Vector3 targetDirection;
+    Quaternion lookRotation;
     [Tooltip("The speed at which the player character will rotate to face the same direction as the camera.")]
     public float rotationSpeed = 10f;
 

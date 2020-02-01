@@ -474,16 +474,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ad26e736bfdbd242a7802847327825c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useTool: 0
   anim: {fileID: 0}
-  animLength: 1.2
-  timer: 0
+  animLength: 2
   cameraObj: {fileID: 941928826}
   cameraFocusScript: {fileID: 0}
   tool: {fileID: 0}
   toolType: 0
-  hasTool: 0
-  dropTool: 0
   handTransform: {fileID: 732138121}
 --- !u!4 &732138121 stripped
 Transform:
@@ -510,6 +506,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6047131818338125987, guid: 700259229602db54cbf11f8d922e2157,
+        type: 3}
+      propertyPath: movementSpeed
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 6047131818763811334, guid: 700259229602db54cbf11f8d922e2157,
         type: 3}
       propertyPath: layerMask.m_Bits
@@ -1102,6 +1103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   partType: 1
+  partHealth: 3
 --- !u!1 &1330307310
 GameObject:
   m_ObjectHideFlags: 0
@@ -1209,6 +1211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   partType: 2
+  partHealth: 3
 --- !u!1 &1562432414
 GameObject:
   m_ObjectHideFlags: 0

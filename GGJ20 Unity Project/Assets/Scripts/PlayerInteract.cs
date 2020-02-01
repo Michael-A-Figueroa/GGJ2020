@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class PlayerInteract : MonoBehaviour
 {
-    public bool useTool;
+    bool fixing;
 
     public Animator anim;
     public float animLength;
-    public float timer;
+    float timer;
 
     public GameObject cameraObj;
     public CameraFocus cameraFocusScript;
 
     public GameObject tool;
     public int toolType;
-    public bool hasTool;
-    public bool dropTool;
+    bool hasTool;
+    bool dropTool;
 
     public Transform handTransform;
 
@@ -31,34 +31,33 @@ public class PlayerInteract : MonoBehaviour
     void Update()
     {
         //use tool input
-        if (Input.GetAxis("Fire1") > 0)
+        if (Input.GetButtonDown("Fire1") && !fixing)
         {
-            useTool = true;
-        }
-        //use tool animation/interaction
-        if (useTool)
-        {
-            anim.SetBool("useTool", useTool);
+            fixing = true;
+            
+            anim.SetBool("useTool", true);
 
             if (cameraFocusScript.focusHit != null && cameraFocusScript.focusHit.GetComponent<PartBehavior>()) 
             {
                 if (cameraFocusScript.focusHit.GetComponent<PartBehavior>().partType == toolType)
                 {
-                    Debug.Log("Right part");
+                    CorrectTool(cameraFocusScript.focusHit);
                 }
                 else if (cameraFocusScript.focusHit.GetComponent<PartBehavior>().partType != toolType)
                 {
-                    Debug.Log("Wrong part");
+                    IncorrectTool();
                 }
             }
-            //timer for animation
-            timer += Time.deltaTime;
-            if (timer >= animLength)
-            {
-                useTool = false;
-                anim.SetBool("useTool", useTool);
-                timer = 0;
-            }
+            
+        }
+        
+        //timer for animation
+        timer += Time.deltaTime;
+        if (timer >= animLength)
+        {
+            fixing = false;
+            anim.SetBool("useTool", false);
+            timer = 0;
         }
         //pickup/interact input
         if (Input.GetButtonDown("Fire2"))
@@ -113,5 +112,17 @@ public class PlayerInteract : MonoBehaviour
         tool = null;
         toolType = 0;
         hasTool = false;
+    }
+
+    public void CorrectTool(GameObject part)
+    {
+        part.GetComponent<PartBehavior>().partHealth -= 1;
+
+        Debug.Log("Right part");
+    }
+
+    public void IncorrectTool()
+    {
+        Debug.Log("Wrong part");
     }
 }

@@ -6,15 +6,9 @@ public class PartBehavior : MonoBehaviour
 {
     public int partType;
 
-    Color startColor;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float partHealth = 3;
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         
     }

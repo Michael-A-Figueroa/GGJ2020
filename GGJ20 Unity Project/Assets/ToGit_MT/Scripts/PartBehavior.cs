@@ -13,9 +13,5 @@ public class PartBehavior : MonoBehaviour
         
     }
 
-    //public void Highlight()
-    //{
-    //    startColor = GetComponent<Renderer>().material.color;
-    //    GetComponent<Renderer>().material.color = Color.yellow;
-    //}
+    
 }

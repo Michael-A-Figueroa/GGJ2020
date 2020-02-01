@@ -4,9 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - part1
-  - part2
   - tool
+  - part
   layers:
   - Default
   - TransparentFX

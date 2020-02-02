@@ -62,7 +62,7 @@ public class PlayerInteract : MonoBehaviour
             timer = 0;
         }
         //pickup/interact input
-        if (Input.GetButtonDown("Fire2"))
+        if (Input.GetButtonDown("Fire2") && cameraFocusScript.focusHit != null)
         {
             //no tool and pickup tool that is focused on
             if (!hasTool && cameraFocusScript.focusHit.tag == "tool")
@@ -71,7 +71,6 @@ public class PlayerInteract : MonoBehaviour
                 toolType = tool.GetComponent<ToolBehavior>().toolType;
                 tool.GetComponent<ToolBehavior>().PlayPickup();
                 tool.GetComponent<ToolBehavior>().toolTrigger.enabled = false;
-                //tool.GetComponent<ToolBehavior>().toolCollider.isTrigger = true;
                 tool.transform.position = handTransform.position;
                 tool.transform.rotation = Quaternion.identity;
                 tool.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
@@ -85,7 +84,6 @@ public class PlayerInteract : MonoBehaviour
                 toolType = tool.GetComponent<ToolBehavior>().toolType;
                 tool.GetComponent<ToolBehavior>().PlayPickup();
                 tool.GetComponent<ToolBehavior>().toolTrigger.enabled = false;
-                //tool.GetComponent<ToolBehavior>().toolCollider.isTrigger = true;
                 tool.transform.position = handTransform.position;
                 tool.transform.rotation = Quaternion.identity;
                 tool.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
@@ -100,6 +98,7 @@ public class PlayerInteract : MonoBehaviour
         if (hasTool)
         {
             tool.transform.position = handTransform.position;
+            tool.transform.rotation = handTransform.rotation;
         }
     }
 
@@ -114,8 +113,6 @@ public class PlayerInteract : MonoBehaviour
 
     public void DropTool()
     {
-        //tool.transform.position = tool.transform.position + new Vector3(0, 5, 0);
-        //tool.GetComponent<ToolBehavior>().toolCollider.isTrigger = false;
         tool.GetComponent<ToolBehavior>().toolTrigger.enabled = true;
         tool.GetComponent<ToolBehavior>().PlayDrop();
         tool = null;

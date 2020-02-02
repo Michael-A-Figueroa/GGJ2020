@@ -43,7 +43,11 @@ public class CameraFocus : MonoBehaviour
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.red);
             focusHit = hit.transform.gameObject;
 
-            //Debug.Log("Did Hit: " + hit.collider.tag);
+            if (focusHit.CompareTag("part"))
+            {
+                partHealth = focusHit.GetComponent<PartBehavior>().partHealth;
+                focusHit.GetComponent<Renderer>().material.color = colorChoices[Mathf.Clamp(partHealth, 0, 3)];
+            }
         }
         else if(focusCache != null)
         {
@@ -63,9 +67,9 @@ public class CameraFocus : MonoBehaviour
                 partHealth = focusHit.GetComponent<PartBehavior>().partHealth;
                 focusHit.GetComponent<Renderer>().material.color = colorChoices[Mathf.Clamp(partHealth, 0, 3)];
             }
-            else
+            else if (focusHit.CompareTag("tool"))
             {
-                focusHit.GetComponent<Renderer>().material.color =  Color.yellow;
+                focusHit.GetComponent<ToolBehavior>().toolRenderer.material.color = Color.yellow;
             }
 
             highlight = true;
@@ -73,8 +77,9 @@ public class CameraFocus : MonoBehaviour
         //un-highlight
         if (focusCache != null && !ReferenceEquals(focusCache, focusHit))
         {
-            highlight = false;
             focusCache.GetComponent<Renderer>().material.color = startColor;
+
+            highlight = false;
         }
 
         Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * maxDistance, Color.blue);

@@ -237,6 +237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toolType: 2
   toolTrigger: {fileID: 3302741229589778223}
+  toolRenderer: {fileID: 8143012330154812318}
   audioSource: {fileID: 3302741229589778221}
   pickupClip: {fileID: 0}
   dropClip: {fileID: 0}

@@ -316,8 +316,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 538ee1a56058a124b9489d72b5c91db3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toolType: 0
+  toolType: 3
   toolTrigger: {fileID: 5606520636499015809}
+  toolRenderer: {fileID: 6336026951476129326}
   audioSource: {fileID: 1545664783527928862}
   pickupClip: {fileID: 0}
   dropClip: {fileID: 0}

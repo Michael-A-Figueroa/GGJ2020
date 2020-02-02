@@ -30,9 +30,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 425957019724177948}
-  m_LocalRotation: {x: -0.09029079, y: 0.34802902, z: 0.7013184, w: 0.61552894}
+  m_LocalRotation: {x: -0.09029505, y: 0.34802952, z: 0.70131797, w: 0.6155286}
   m_LocalPosition: {x: 0.52376676, y: 0.08285022, z: 0.184973}
-  m_LocalScale: {x: -0.124590516, y: -0.1245905, z: -0.57406664}
+  m_LocalScale: {x: 0.1245905, y: 0.1245905, z: 0.5740667}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -234,8 +234,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 538ee1a56058a124b9489d72b5c91db3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toolType: 0
+  toolType: 4
   toolTrigger: {fileID: 425957019724177936}
+  toolRenderer: {fileID: 6430355849016954529}
   audioSource: {fileID: 425957019724177938}
   pickupClip: {fileID: 0}
   dropClip: {fileID: 0}

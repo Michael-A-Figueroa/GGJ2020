@@ -431,6 +431,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 720250241, guid: 700259229602db54cbf11f8d922e2157, type: 3}
+      propertyPath: animLength
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1562432416, guid: 700259229602db54cbf11f8d922e2157, type: 3}
       propertyPath: m_TargetTexture
       value: 
@@ -2517,6 +2521,11 @@ MonoBehaviour:
   toolType: 2
   toolTrigger: {fileID: 1182848943}
   toolCollider: {fileID: 1182848944}
+  audioSource: {fileID: 0}
+  pickupClip: {fileID: 0}
+  dropClip: {fileID: 0}
+  useCorrectClip: {fileID: 0}
+  useIncorrectClip: {fileID: 0}
 --- !u!135 &1182848943
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2878,7 +2887,7 @@ SpriteRenderer:
   m_Size: {x: 1.02, y: 0.96}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1751897483

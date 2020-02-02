@@ -41,10 +41,12 @@ public class PlayerInteract : MonoBehaviour
             {
                 if (cameraFocusScript.focusHit.GetComponent<PartBehavior>().partType == toolType)
                 {
+                    tool.GetComponent<ToolBehavior>().PlayCorrect();
                     CorrectTool(cameraFocusScript.focusHit);
                 }
                 else if (cameraFocusScript.focusHit.GetComponent<PartBehavior>().partType != toolType)
                 {
+                    tool.GetComponent<ToolBehavior>().PlayIncorrect();
                     IncorrectTool(cameraFocusScript.focusHit);
                 }
             }
@@ -67,6 +69,7 @@ public class PlayerInteract : MonoBehaviour
             {
                 tool = cameraFocusScript.focusHit;
                 toolType = tool.GetComponent<ToolBehavior>().toolType;
+                tool.GetComponent<ToolBehavior>().PlayPickup();
                 tool.GetComponent<ToolBehavior>().toolTrigger.enabled = false;
                 //tool.GetComponent<ToolBehavior>().toolCollider.isTrigger = true;
                 tool.transform.position = handTransform.position;
@@ -80,6 +83,7 @@ public class PlayerInteract : MonoBehaviour
                 DropTool();
                 tool = cameraFocusScript.focusHit;
                 toolType = tool.GetComponent<ToolBehavior>().toolType;
+                tool.GetComponent<ToolBehavior>().PlayPickup();
                 tool.GetComponent<ToolBehavior>().toolTrigger.enabled = false;
                 //tool.GetComponent<ToolBehavior>().toolCollider.isTrigger = true;
                 tool.transform.position = handTransform.position;
@@ -113,6 +117,7 @@ public class PlayerInteract : MonoBehaviour
         //tool.transform.position = tool.transform.position + new Vector3(0, 5, 0);
         //tool.GetComponent<ToolBehavior>().toolCollider.isTrigger = false;
         tool.GetComponent<ToolBehavior>().toolTrigger.enabled = true;
+        tool.GetComponent<ToolBehavior>().PlayDrop();
         tool = null;
         toolType = 0;
         hasTool = false;

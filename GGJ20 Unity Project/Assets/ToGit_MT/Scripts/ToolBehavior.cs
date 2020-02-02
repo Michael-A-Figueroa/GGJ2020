@@ -7,15 +7,34 @@ public class ToolBehavior : MonoBehaviour
     public int toolType;
     public SphereCollider toolTrigger;
     public Collider toolCollider;
-    // Start is called before the first frame update
-    void Start()
+
+    public AudioSource audioSource;
+    public AudioClip pickupClip;
+    public AudioClip dropClip;
+    public AudioClip useCorrectClip;
+    public AudioClip useIncorrectClip;
+
+    public void PlayPickup()
     {
-        
+        //audioSource.clip = pickupClip;
+        //audioSource.Play();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void PlayDrop()
     {
-        
+        //audioSource.clip = dropClip;
+        //audioSource.Play();
+    }
+
+    public void PlayCorrect()
+    {
+        //audioSource.clip = useCorrectClip;
+        //audioSource.Play();
+    }
+
+    public void PlayIncorrect()
+    {
+        //audioSource.clip = useIncorrectClip;
+        //audioSource.Play();
     }
 }

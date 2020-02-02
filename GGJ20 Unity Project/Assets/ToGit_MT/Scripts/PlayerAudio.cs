@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerAudio : MonoBehaviour
 {
-    public AudioSource audioSource;
+    public AudioSource audioSource; 
     public AudioClip[] audioClips;
 
     public float clipWaitTime = 5;

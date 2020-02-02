@@ -70,6 +70,8 @@ public class PlayerInteract : MonoBehaviour
                 tool.GetComponent<ToolBehavior>().toolTrigger.enabled = false;
                 //tool.GetComponent<ToolBehavior>().toolCollider.isTrigger = true;
                 tool.transform.position = handTransform.position;
+                tool.transform.rotation = Quaternion.identity;
+                tool.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
                 hasTool = true;
             }
             //switch tool 
@@ -81,6 +83,8 @@ public class PlayerInteract : MonoBehaviour
                 tool.GetComponent<ToolBehavior>().toolTrigger.enabled = false;
                 //tool.GetComponent<ToolBehavior>().toolCollider.isTrigger = true;
                 tool.transform.position = handTransform.position;
+                tool.transform.rotation = Quaternion.identity;
+                tool.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
             }
             //drop tool
             else if (hasTool)

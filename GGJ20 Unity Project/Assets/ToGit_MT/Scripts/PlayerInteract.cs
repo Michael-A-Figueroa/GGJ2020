@@ -71,9 +71,8 @@ public class PlayerInteract : MonoBehaviour
                 toolType = tool.GetComponent<ToolBehavior>().toolType;
                 tool.GetComponent<ToolBehavior>().PlayPickup();
                 tool.GetComponent<ToolBehavior>().toolTrigger.enabled = false;
-                //tool.GetComponent<ToolBehavior>().toolCollider.isTrigger = true;
                 tool.transform.position = handTransform.position;
-                tool.transform.rotation = Quaternion.identity;
+                //tool.transform.rotation = Quaternion.identity;
                 tool.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
                 hasTool = true;
             }
@@ -85,9 +84,8 @@ public class PlayerInteract : MonoBehaviour
                 toolType = tool.GetComponent<ToolBehavior>().toolType;
                 tool.GetComponent<ToolBehavior>().PlayPickup();
                 tool.GetComponent<ToolBehavior>().toolTrigger.enabled = false;
-                //tool.GetComponent<ToolBehavior>().toolCollider.isTrigger = true;
                 tool.transform.position = handTransform.position;
-                tool.transform.rotation = Quaternion.identity;
+                //tool.transform.rotation = Quaternion.identity;
                 tool.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
             }
             //drop tool
@@ -114,8 +112,6 @@ public class PlayerInteract : MonoBehaviour
 
     public void DropTool()
     {
-        //tool.transform.position = tool.transform.position + new Vector3(0, 5, 0);
-        //tool.GetComponent<ToolBehavior>().toolCollider.isTrigger = false;
         tool.GetComponent<ToolBehavior>().toolTrigger.enabled = true;
         tool.GetComponent<ToolBehavior>().PlayDrop();
         tool = null;

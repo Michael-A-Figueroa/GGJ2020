@@ -6,7 +6,6 @@ public class ToolBehavior : MonoBehaviour
 {
     public int toolType;
     public SphereCollider toolTrigger;
-    public Collider toolCollider;
 
     public AudioSource audioSource;
     public AudioClip pickupClip;

@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraFocus : MonoBehaviour
 {
     public LayerMask layerMask;
-    
+
     public float maxDistance;
 
     public GameObject focusHit;
@@ -13,11 +13,20 @@ public class CameraFocus : MonoBehaviour
     public bool highlight;
 
     public Color startColor;
+    public Color partHealthLow;
+    public Color partHealthMid;
+    public Color partHealthFull;
+    public int partHealth;
+
+    public Color[] colorChoices;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        colorChoices[0] = partHealthFull;
+        colorChoices[1] = partHealthFull;
+        colorChoices[2] = partHealthMid;
+        colorChoices[3] = partHealthLow;
     }
 
     // Update is called once per frame
@@ -48,7 +57,17 @@ public class CameraFocus : MonoBehaviour
         {
             focusCache = focusHit;
             startColor = focusHit.GetComponent<Renderer>().material.color;
-            focusHit.GetComponent<Renderer>().material.color = Color.yellow;
+
+            if (focusHit.CompareTag("part"))
+            {
+                partHealth = focusHit.GetComponent<PartBehavior>().partHealth;
+                focusHit.GetComponent<Renderer>().material.color = colorChoices[Mathf.Clamp(partHealth, 0, 3)];
+            }
+            else
+            {
+                focusHit.GetComponent<Renderer>().material.color =  Color.yellow;
+            }
+
             highlight = true;
         }
         //un-highlight

@@ -62,7 +62,7 @@ public class PlayerInteract : MonoBehaviour
             timer = 0;
         }
         //pickup/interact input
-        if (Input.GetButtonDown("Fire2"))
+        if (Input.GetButtonDown("Fire2") && cameraFocusScript.focusHit != null)
         {
             //no tool and pickup tool that is focused on
             if (!hasTool && cameraFocusScript.focusHit.tag == "tool")
